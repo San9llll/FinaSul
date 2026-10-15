@@ -32,6 +32,7 @@ import me.weishu.kernelsu.ui.component.card.LocalFolkLiquidState
 import me.weishu.kernelsu.ui.component.card.folkGlassCard
 import me.weishu.kernelsu.ui.theme.ContinuousCornerShape
 import java.time.LocalTime
+import me.weishu.kernelsu.data.HomeMetrics
 
 /**
  * The Aster home surface.

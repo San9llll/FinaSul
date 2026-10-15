@@ -51,6 +51,7 @@ import me.weishu.kernelsu.ui.component.material.SegmentedSwitchItem
 import me.weishu.kernelsu.ui.screen.nomount.nomountUnavailableReason
 import me.weishu.kernelsu.ui.component.profile.dialogs.SingleSelectDialog
 import me.weishu.kernelsu.ui.util.LauncherIconUtils
+import me.weishu.kernelsu.ui.component.material.SegmentedSliderItem
 
 /**
  * Contents of each settings category, split out of the old flat hub. Every function emits its own
