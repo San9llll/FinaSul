@@ -1,0 +1,58 @@
+name: Build APK
+
+# 只编管理器 APK。
+#
+# ## 为什么单独开一个
+#
+# 原来的 build-manager.yml 是个大 workflow，里面塞了六个 job：
+#   generate-key / build-lkm / build-ksuinit / build-ksud / build-ksud-extra / build-manager
+#
+# 那些 kernel 和 userspace 的 job 是给**内核开发**用的（编 .ko、编 Rust 的 ksud 二进制、
+# 编 RISC-V 的 ksuinit）。而 build-manager 其实只 needs generate-key —— 它压根不需要那些东西。
+#
+# 但它们没写触发条件，所以只要一推 manager 的代码，六个 job 全跑：
+# 编译内核容器、交叉编译 Rust、打包一堆 .ko……每次十几分钟，全是白等。
+#
+# 这个 workflow 就是给"只改 UI"的场景用的：拿现成的 ksud 二进制（仓库里
+# manager/app/src/main/jniLibs/arm64-v8a/libksud.so 已经有），直接编 APK。
+#
+# 需要内核那套的时候再手动跑原来的 build-manager.yml。
+
+on:
+  push:
+    branches: ["main", "master"]
+    paths:
+      - 'manager/**'
+      - '.github/workflows/build-apk.yml'
+  workflow_dispatch:
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build debug APK
+        working-directory: manager
+        run: |
+          # zip 往返会丢可执行位，保险起见再来一次
+          # （仓库里已经是 0755 了，但本地 checkout 到某些文件系统上可能又变回去）
+          chmod +x gradlew
+          ./gradlew clean assembleDebug --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: nakour-style-manager-apk
+          path: manager/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error

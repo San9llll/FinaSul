@@ -1,40 +1,16 @@
 name: Build Manager
 
 on:
-  push:
-    branches: [ "main", "master", "dev", "ci" ]
-    paths:
-      - '.github/workflows/build-manager.yml'
-      - '.github/workflows/build-lkm.yml'
-      - '.github/workflows/ddk-lkm.yml'
-      - '.github/workflows/ksud.yml'
-      - '.github/workflows/ksud-extra.yml'
-      - '.github/workflows/ksuinit.yml'
-      - '.github/scripts/setup-rust-build.sh'
-      - '.github/riscv64-cargo.toml'
-      - 'repack_apk.py'
-      - 'manager/**'
-      - 'kernel/**'
-      - 'userspace/**'
-      - 'Cargo.lock'
-      - 'Cargo.toml'
-  pull_request:
-    branches: [ "main", "master", "dev" ]
-    paths:
-      - '.github/workflows/build-manager.yml'
-      - '.github/workflows/build-lkm.yml'
-      - '.github/workflows/ddk-lkm.yml'
-      - '.github/workflows/ksud.yml'
-      - '.github/workflows/ksud-extra.yml'
-      - '.github/workflows/ksuinit.yml'
-      - '.github/scripts/setup-rust-build.sh'
-      - '.github/riscv64-cargo.toml'
-      - 'repack_apk.py'
-      - 'manager/**'
-      - 'kernel/**'
-      - 'userspace/**'
-      - 'Cargo.lock'
-      - 'Cargo.toml'
+  # 只保留手动触发和"被别的 workflow 调用"。
+  #
+  # 原来这里是推 main 就自动跑，但这个 workflow 里有六个 job —— 编内核 .ko、
+  # 交叉编译 Rust 的 ksud、编 RISC-V 的 ksuinit —— 那些是内核开发才需要的，
+  # 而每次改个 UI 都会把它们全部拉起来，白等十几分钟。
+  #
+  # 现在改 UI 走 build-apk.yml（只编 APK，两分钟）；这里留给需要内核产物的场合：
+  #   · 手动跑：Actions 页面 → Build Manager → Run workflow
+  #   · 发版：release.yml 会以 workflow_call 的方式调它
+  workflow_dispatch:
   workflow_call:
 
 jobs:
