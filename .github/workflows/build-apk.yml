@@ -24,7 +24,12 @@ on:
     paths:
       - 'manager/**'
       - '.github/workflows/build-apk.yml'
+    tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: '打个 tag 发 Release（留空就只出 artifact）'
+        required: false
 
 jobs:
   apk:
@@ -56,3 +61,21 @@ jobs:
           name: nakour-style-manager-apk
           path: manager/app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+      # 打了 tag（或者在 Actions 页面手动填了 tag）就顺手发一个 Release。
+      #
+      # 之前 Release 里一堆 ksud / lkm / ksuinit，是因为走了上游的 release.yml ——
+      # 那个是内核发版用的。这里只放管理器 APK，一个文件，下起来不费劲。
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v') || inputs.tag != ''
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ inputs.tag || github.ref_name }}
+          name: AsterUI ${{ inputs.tag || github.ref_name }}
+          body: |
+            管理器 APK（AsterUI 预览版）。
+
+            debug 版，用 Android 默认调试签名，可以直接装。
+          files: manager/app/build/outputs/apk/debug/*.apk
+          draft: false
+          prerelease: false
