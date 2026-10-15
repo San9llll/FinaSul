@@ -110,7 +110,7 @@ private fun rememberSystem24Hour(): Boolean {
  * 两行数字 / 单行数字 / 指针 / 只画日期。
  */
 @Composable
-fun SceneClock(style: lo.naui.ui.theme.ClockStyle, modifier: Modifier = Modifier) {
+fun SceneClock(style: ClockStyle, modifier: Modifier = Modifier) {
     val now by produceState(initialValue = LocalDateTime.now(), key1 = Unit) {
         while (true) {
             value = LocalDateTime.now()
@@ -137,7 +137,7 @@ fun SceneClock(style: lo.naui.ui.theme.ClockStyle, modifier: Modifier = Modifier
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         when (style) {
-            lo.naui.ui.theme.ClockStyle.Stacked -> {
+            ClockStyle.Stacked -> {
                 if (meridiem != null) {
                     SceneClockLine(meridiem, 11.sp, alpha = 0.82f)
                     Spacer(Modifier.height(4.dp))
@@ -153,19 +153,19 @@ fun SceneClock(style: lo.naui.ui.theme.ClockStyle, modifier: Modifier = Modifier
                 SceneClockLine(now.format(ClockFormatterMinute), 30.sp)
             }
 
-            lo.naui.ui.theme.ClockStyle.Inline -> {
+            ClockStyle.Inline -> {
                 SceneClockLine(time, 22.sp)
                 Spacer(Modifier.height(4.dp))
                 SceneClockLine(dateLine, 11.sp, alpha = 0.82f)
             }
 
-            lo.naui.ui.theme.ClockStyle.Analog -> {
+            ClockStyle.Analog -> {
                 SceneClockDial(now.toLocalTime())
                 Spacer(Modifier.height(6.dp))
                 SceneClockLine(dateLine, 11.sp, alpha = 0.82f)
             }
 
-            lo.naui.ui.theme.ClockStyle.Date -> {
+            ClockStyle.Date -> {
                 SceneClockLine(weekday, 20.sp)
                 Spacer(Modifier.height(2.dp))
                 SceneClockLine(date, 11.sp, alpha = 0.82f)
