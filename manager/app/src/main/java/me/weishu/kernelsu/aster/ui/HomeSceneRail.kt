@@ -67,7 +67,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
-import com.kyant.backdrop.effects.blur
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -84,9 +83,7 @@ import kotlinx.coroutines.delay
 import me.weishu.kernelsu.aster.sys.Metrics
 import me.weishu.kernelsu.aster.sys.MetricsSnapshot
 import me.weishu.kernelsu.aster.sys.Shortcut
-import ClockStyle
-import InfoMetric
-import LocalThemeModeState
+
 import top.yukonga.miuix.kmp.basic.Icon
 import top.yukonga.miuix.kmp.basic.Text
 import top.yukonga.miuix.kmp.theme.MiuixTheme
