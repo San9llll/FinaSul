@@ -34,6 +34,7 @@ object AsterUiConfig {
     private const val KEY_HOME_LAYOUT = "home_layout_style"
     private const val KEY_SHOW_RAIL = "aster_show_rail"
     private const val KEY_SHOW_GREETING = "aster_show_greeting"
+    private const val KEY_SHOW_INFO_BLOCK = "aster_show_info_block"
     private const val KEY_GLASS_CARD = "aster_glass_card"
     private const val KEY_GLASS_STRENGTH = "aster_glass_strength"
     private const val KEY_GLASS_TRANSPARENCY = "aster_glass_transparency"
@@ -49,6 +50,10 @@ object AsterUiConfig {
     var showRail by mutableStateOf(true)
         private set
     var showGreeting by mutableStateOf(true)
+        private set
+
+    /** 导轨上那块信息（电量 / 温度 / 内存…）。Nakour 那边叫"信息块"。 */
+    var showInfoBlock by mutableStateOf(true)
         private set
     var glassCard by mutableStateOf(true)
         private set
@@ -90,6 +95,7 @@ object AsterUiConfig {
         homeLayout = HomeLayoutStyle.fromValue(p.getString(KEY_HOME_LAYOUT, HomeLayoutStyle.DEFAULT))
         showRail = p.getBoolean(KEY_SHOW_RAIL, true)
         showGreeting = p.getBoolean(KEY_SHOW_GREETING, true)
+        showInfoBlock = p.getBoolean(KEY_SHOW_INFO_BLOCK, true)
         glassCard = p.getBoolean(KEY_GLASS_CARD, true)
         glassStrength = p.getFloat(KEY_GLASS_STRENGTH, 0.7f).coerceIn(0f, 1f)
         glassTransparency = p.getFloat(KEY_GLASS_TRANSPARENCY, 0.3f).coerceIn(0f, 1f)
@@ -116,6 +122,11 @@ object AsterUiConfig {
     fun applyShowGreeting(value: Boolean) {
         showGreeting = value
         prefs?.edit { putBoolean(KEY_SHOW_GREETING, value) }
+    }
+
+    fun applyShowInfoBlock(value: Boolean) {
+        showInfoBlock = value
+        prefs?.edit { putBoolean(KEY_SHOW_INFO_BLOCK, value) }
     }
 
     fun applyGlassCard(value: Boolean) {

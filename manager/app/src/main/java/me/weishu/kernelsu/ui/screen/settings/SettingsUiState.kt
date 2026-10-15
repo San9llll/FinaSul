@@ -29,6 +29,7 @@ data class SettingsUiState(
     // ---- Aster UI（只在 AsterUI 布局下显示/生效）----
     val asterShowRail: Boolean = true,
     val asterShowGreeting: Boolean = true,
+    val asterShowInfoBlock: Boolean = true,
     val asterGlassCard: Boolean = true,
     val asterGlassStrength: Float = 0.7f,
     val asterGlassTransparency: Float = 0.3f,
@@ -123,6 +124,7 @@ data class SettingsScreenActions(
     val onSetHomeLayoutStyle: (String) -> Unit,
     val onSetAsterShowRail: (Boolean) -> Unit,
     val onSetAsterShowGreeting: (Boolean) -> Unit,
+    val onSetAsterShowInfoBlock: (Boolean) -> Unit,
     val onSetAsterGlassCard: (Boolean) -> Unit,
     val onSetAsterGlassStrength: (Float) -> Unit,
     val onSetAsterGlassTransparency: (Float) -> Unit,

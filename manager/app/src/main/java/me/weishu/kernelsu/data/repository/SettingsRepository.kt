@@ -32,6 +32,7 @@ interface SettingsRepository {
     // 放在这儿而不是另起一套偏好，是为了跟 FinaSU 的设置体系一致 —— 备份/恢复能一起带上。
     var asterShowRail: Boolean
     var asterShowGreeting: Boolean
+    var asterShowInfoBlock: Boolean
     var asterGlassCard: Boolean
     var asterGlassStrength: Float
     var asterGlassTransparency: Float

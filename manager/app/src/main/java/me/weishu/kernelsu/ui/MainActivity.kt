@@ -1,9 +1,19 @@
 package me.weishu.kernelsu.ui
 
+import me.weishu.kernelsu.ui.component.bottombar.BottomBarDestination
+import me.weishu.kernelsu.aster.ui.HomeSceneRail
+import me.weishu.kernelsu.aster.ui.ClockStyle
+import me.weishu.kernelsu.aster.ui.RailDestination
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Widgets
+import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.Extension
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.runtime.remember
 import me.weishu.kernelsu.aster.AsterMiuixTheme
 import me.weishu.kernelsu.ui.component.card.LocalFolkLiquidState
 import me.weishu.kernelsu.aster.AsterUiConfig
-import me.weishu.kernelsu.aster.AsterSceneRail
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -568,9 +578,15 @@ fun MainScreen(
                         LocalFolkLiquidState provides sharedLiquidState
                     ) {
                         Row {
-                            AsterSceneRail(
-                                selectedPage = mainPagerState.selectedPage,
+                            // 从 Nakour 原样搬过来的场景导轨（时钟 / 电量 / 信息块 / 五页导航）。
+                            // 放在壳这一层是因为它要切所有页面，不属于任何一个页面。
+                            HomeSceneRail(
+                                destinations = asterRailDestinations(),
+                                currentIndex = mainPagerState.selectedPage,
                                 onSelect = { mainPagerState.animateToPage(it) },
+                                clockStyle = ClockStyle.Stacked,
+                                showBattery = true,
+                                showInfo = AsterUiConfig.showInfoBlock,
                             )
                             Box(modifier = Modifier.weight(1f)) {
                                 pagerContent(navBarBottomPadding)
@@ -682,3 +698,19 @@ private fun MainScreenBackHandler(
         }
     )
 }
+
+/**
+ * 导轨上要显示的五个页面。
+ *
+ * 用 FinaSU 自己的 BottomBarDestination 取标签（这样主题包换的图标也能带上），
+ * 再包成导轨认的 [RailDestination]。
+ */
+@androidx.compose.runtime.Composable
+private fun asterRailDestinations(): List<RailDestination> =
+    listOf(
+        RailDestination(androidx.compose.ui.res.stringResource(BottomBarDestination.Home.label), Icons.Filled.Home),
+        RailDestination(androidx.compose.ui.res.stringResource(BottomBarDestination.Plugin.label), Icons.Filled.Widgets),
+        RailDestination(androidx.compose.ui.res.stringResource(BottomBarDestination.SuperUser.label), Icons.Filled.Shield),
+        RailDestination(androidx.compose.ui.res.stringResource(BottomBarDestination.Module.label), Icons.Filled.Extension),
+        RailDestination(androidx.compose.ui.res.stringResource(BottomBarDestination.Setting.label), Icons.Filled.Settings),
+    )

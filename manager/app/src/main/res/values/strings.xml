@@ -392,6 +392,8 @@
 
     <!-- Aster UI（AsterUI 首页布局） -->
     <string name="settings_home_layout_aster">AsterUI</string>
+    <string name="settings_aster_show_info_block">Rail info block</string>
+    <string name="settings_aster_show_info_block_summary">Battery, temperature and memory readouts on the rail.</string>
     <string name="settings_aster_taken_over">Taken over by AsterUI — switch layout to change it.</string>
     <string name="settings_aster_section">Aster UI</string>
     <string name="settings_aster_section_summary">Only used by the AsterUI home layout.</string>

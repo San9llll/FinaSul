@@ -57,13 +57,16 @@ fun HomePagerMaterial(
     // the scaffold rather than trying to fit inside it. Every other layout falls through to the
     // original code untouched.
     if (AsterUiConfig.active) {
-        AsterHomeContent(
+        // 搬过来的那一套（AsterHomeContent 在 aster.ui 包里）。
+        // 大图暂时传 null —— FinaSU 的壁纸要走到 WallpaperConfig 那层才拿得到 ImageBitmap，
+        // 先让它退化成纯色 hero，等接上壁纸再传。
+        me.weishu.kernelsu.aster.ui.AsterHomeContent(
             state = state,
             actions = actions,
             bottomInnerPadding = bottomInnerPadding,
             superuserCount = superuserCount,
             moduleEnabledCount = moduleEnabledCount,
-            metrics = metrics,
+            wallpaper = null,
         )
         return
     }

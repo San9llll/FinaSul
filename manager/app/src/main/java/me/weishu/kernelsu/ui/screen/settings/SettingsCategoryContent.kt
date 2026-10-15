@@ -267,6 +267,15 @@ fun AppearanceCategoryContent(uiState: SettingsUiState, actions: SettingsScreenA
                 }
                 add {
                     SegmentedSwitchItem(
+                        icon = Icons.Filled.Info,
+                        title = stringResource(id = R.string.settings_aster_show_info_block),
+                        summary = stringResource(id = R.string.settings_aster_show_info_block_summary),
+                        checked = uiState.asterShowInfoBlock,
+                        onCheckedChange = actions.onSetAsterShowInfoBlock,
+                    )
+                }
+                add {
+                    SegmentedSwitchItem(
                         icon = Icons.Filled.Palette,
                         title = stringResource(id = R.string.settings_aster_glass),
                         summary = stringResource(id = R.string.settings_aster_glass_summary),

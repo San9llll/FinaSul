@@ -52,6 +52,7 @@ class SettingsViewModel(
             val homeLayoutStyle = repo.homeLayoutStyle
             val asterShowRail = repo.asterShowRail
             val asterShowGreeting = repo.asterShowGreeting
+            val asterShowInfoBlock = repo.asterShowInfoBlock
             val asterGlassCard = repo.asterGlassCard
             val asterGlassStrength = repo.asterGlassStrength
             val asterGlassTransparency = repo.asterGlassTransparency
@@ -118,6 +119,7 @@ class SettingsViewModel(
                     homeLayoutStyle = homeLayoutStyle,
                     asterShowRail = asterShowRail,
                     asterShowGreeting = asterShowGreeting,
+                    asterShowInfoBlock = asterShowInfoBlock,
                     asterGlassCard = asterGlassCard,
                     asterGlassStrength = asterGlassStrength,
                     asterGlassTransparency = asterGlassTransparency,
@@ -263,6 +265,12 @@ class SettingsViewModel(
         repo.asterShowGreeting = enabled
         AsterUiConfig.applyShowGreeting(enabled)
         _uiState.update { it.copy(asterShowGreeting = enabled) }
+    }
+
+    fun setAsterShowInfoBlock(enabled: Boolean) {
+        repo.asterShowInfoBlock = enabled
+        AsterUiConfig.applyShowInfoBlock(enabled)
+        _uiState.update { it.copy(asterShowInfoBlock = enabled) }
     }
 
     fun setAsterGlassCard(enabled: Boolean) {

@@ -281,6 +281,8 @@
 
     <!-- Aster UI（AsterUI 首页布局） -->
     <string name="settings_home_layout_aster">AsterUI</string>
+    <string name="settings_aster_show_info_block">边栏信息块</string>
+    <string name="settings_aster_show_info_block_summary">侧栏上显示电量、温度、内存这些。</string>
     <string name="settings_aster_taken_over">已被 AsterUI 接管 —— 换回别的布局才能改。</string>
     <string name="settings_aster_section">Aster UI</string>
     <string name="settings_aster_section_summary">只在 AsterUI 首页布局下生效。</string>

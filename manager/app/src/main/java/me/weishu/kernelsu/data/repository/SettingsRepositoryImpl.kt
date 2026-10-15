@@ -142,6 +142,10 @@ class SettingsRepositoryImpl : SettingsRepository {
         get() = prefs.getBoolean("aster_show_greeting", true)
         set(value) = prefs.edit { putBoolean("aster_show_greeting", value) }
 
+    override var asterShowInfoBlock: Boolean
+        get() = prefs.getBoolean("aster_show_info_block", true)
+        set(value) = prefs.edit { putBoolean("aster_show_info_block", value) }
+
     override var asterGlassCard: Boolean
         get() = prefs.getBoolean("aster_glass_card", true)
         set(value) = prefs.edit { putBoolean("aster_glass_card", value) }

@@ -109,6 +109,7 @@ fun rememberSettingsActions(
         onSetHomeLayoutStyle = viewModel::setHomeLayoutStyle,
         onSetAsterShowRail = viewModel::setAsterShowRail,
         onSetAsterShowGreeting = viewModel::setAsterShowGreeting,
+        onSetAsterShowInfoBlock = viewModel::setAsterShowInfoBlock,
         onSetAsterGlassCard = viewModel::setAsterGlassCard,
         onSetAsterGlassStrength = viewModel::setAsterGlassStrength,
         onSetAsterGlassTransparency = viewModel::setAsterGlassTransparency,
