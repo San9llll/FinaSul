@@ -13,6 +13,7 @@ class HomeLayoutStyleTest {
         assertEquals("focus", HomeLayoutStyle.FOCUS)
         assertEquals("dashboard_ui", HomeLayoutStyle.DASHBOARD)
         assertEquals("stats", HomeLayoutStyle.STATS)
+        assertEquals("aster_ui", HomeLayoutStyle.ASTER)
         assertEquals("circle", HomeLayoutStyle.DEFAULT)
     }
 
@@ -23,6 +24,7 @@ class HomeLayoutStyleTest {
         assertEquals(HomeLayoutStyle.FOCUS, HomeLayoutStyle.fromValue("focus"))
         assertEquals(HomeLayoutStyle.DASHBOARD, HomeLayoutStyle.fromValue("dashboard_ui"))
         assertEquals(HomeLayoutStyle.STATS, HomeLayoutStyle.fromValue("stats"))
+        assertEquals(HomeLayoutStyle.ASTER, HomeLayoutStyle.fromValue("aster_ui"))
     }
 
     @Test
@@ -36,7 +38,14 @@ class HomeLayoutStyleTest {
     @Test
     fun `supported list contains only the known tokens`() {
         assertEquals(
-            listOf(HomeLayoutStyle.CIRCLE, HomeLayoutStyle.GRID, HomeLayoutStyle.FOCUS, HomeLayoutStyle.DASHBOARD, HomeLayoutStyle.STATS),
+            listOf(
+                HomeLayoutStyle.CIRCLE,
+                HomeLayoutStyle.GRID,
+                HomeLayoutStyle.FOCUS,
+                HomeLayoutStyle.DASHBOARD,
+                HomeLayoutStyle.STATS,
+                HomeLayoutStyle.ASTER,
+            ),
             HomeLayoutStyle.supported,
         )
     }
