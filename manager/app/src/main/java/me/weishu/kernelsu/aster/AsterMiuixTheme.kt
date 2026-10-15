@@ -2,6 +2,7 @@ package me.weishu.kernelsu.aster
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.materialkolor.PaletteStyle
@@ -74,8 +75,19 @@ fun AsterMiuixTheme(
         )
     }
 
-    MiuixTheme(controller = controller) {
-        content()
+    CompositionLocalProvider(
+        // 搬过来的那些组件（侧边栏、时钟）会读它来判断"现在是不是深色"，
+        // 用来决定压在壁纸上的字该用亮色还是暗色。
+        // Nakour 是在自己的 Theme.kt 里提供的，FinaSU 没这个东西，所以这里补上。
+        me.weishu.kernelsu.aster.ui.LocalThemeModeState provides
+            me.weishu.kernelsu.aster.ui.ThemeModeState(
+                isDark = miuixMode == ColorSchemeMode.MonetDark,
+                isDynamicColor = useSystemColor,
+            )
+    ) {
+        MiuixTheme(controller = controller) {
+            content()
+        }
     }
 }
 
