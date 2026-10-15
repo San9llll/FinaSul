@@ -66,9 +66,16 @@ jobs:
       - name: release
         uses: softprops/action-gh-release@v3
         with:
+          # 只发管理器 APK。
+          #
+          # 上游这里把 ksud / ksuinit / lkm / folkzygisk 源码一起发了 —— 那些是给
+          # 内核开发和刷机用的，跟"装个管理器试试"完全无关，混在一起反而找不到包。
+          #
+          # 而且原来的 `manager/*.apk` 根本匹配不到：build-manager 上传的 artifact
+          # 叫 manager-gradle / manager-debug-apk，download-artifact 会把它们下到
+          # 同名目录里，不存在名为 manager/ 的路径。所以那次 Release 里一个 APK 都没有。
+          #
+          # debug 版用的是 Android 默认调试签名，可以直接装；
+          # release 版是未签名的，装了会被系统拒（正式签名那套需要仓库配 secrets）。
           files: |
-            manager/*.apk
-            lkm/lkm-*_kernelsu.ko
-            ksud/ksud-*
-            ksuinit/*
-            folkzygisk-source-*/folkzygisk-source-*.tar.gz
+            manager-debug-apk/*.apk
