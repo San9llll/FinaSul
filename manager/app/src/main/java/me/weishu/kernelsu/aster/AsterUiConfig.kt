@@ -102,40 +102,40 @@ object AsterUiConfig {
     // alongside writing through the repository, so both the reactive readers and any later
     // restore see the same thing.
 
-    fun setHomeLayout(value: String) {
+    fun applyHomeLayout(value: String) {
         val normalized = HomeLayoutStyle.fromValue(value)
         homeLayout = normalized
         prefs?.edit { putString(KEY_HOME_LAYOUT, normalized) }
     }
 
-    fun setShowRail(value: Boolean) {
+    fun applyShowRail(value: Boolean) {
         showRail = value
         prefs?.edit { putBoolean(KEY_SHOW_RAIL, value) }
     }
 
-    fun setShowGreeting(value: Boolean) {
+    fun applyShowGreeting(value: Boolean) {
         showGreeting = value
         prefs?.edit { putBoolean(KEY_SHOW_GREETING, value) }
     }
 
-    fun setGlassCard(value: Boolean) {
+    fun applyGlassCard(value: Boolean) {
         glassCard = value
         prefs?.edit { putBoolean(KEY_GLASS_CARD, value) }
     }
 
-    fun setGlassStrength(value: Float) {
+    fun applyGlassStrength(value: Float) {
         val v = value.coerceIn(0f, 1f)
         glassStrength = v
         prefs?.edit { putFloat(KEY_GLASS_STRENGTH, v) }
     }
 
-    fun setGlassTransparency(value: Float) {
+    fun applyGlassTransparency(value: Float) {
         val v = value.coerceIn(0f, 1f)
         glassTransparency = v
         prefs?.edit { putFloat(KEY_GLASS_TRANSPARENCY, v) }
     }
 
-    fun setCorner(value: Int) {
+    fun applyCorner(value: Int) {
         val v = value.coerceIn(0, 36)
         corner = v
         prefs?.edit { putInt(KEY_CORNER, v) }

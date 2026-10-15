@@ -247,7 +247,7 @@ class SettingsViewModel(
         repo.homeLayoutStyle = normalized
         // 同步到 AsterUiConfig：整棵树（外壳、卡片、首页）都从那儿读，
         // 不这么做的话切布局要重启才生效。
-        AsterUiConfig.setHomeLayout(normalized)
+        AsterUiConfig.applyHomeLayout(normalized)
         _uiState.update { it.copy(homeLayoutStyle = normalized) }
     }
 
@@ -255,40 +255,40 @@ class SettingsViewModel(
 
     fun setAsterShowRail(enabled: Boolean) {
         repo.asterShowRail = enabled
-        AsterUiConfig.setShowRail(enabled)
+        AsterUiConfig.applyShowRail(enabled)
         _uiState.update { it.copy(asterShowRail = enabled) }
     }
 
     fun setAsterShowGreeting(enabled: Boolean) {
         repo.asterShowGreeting = enabled
-        AsterUiConfig.setShowGreeting(enabled)
+        AsterUiConfig.applyShowGreeting(enabled)
         _uiState.update { it.copy(asterShowGreeting = enabled) }
     }
 
     fun setAsterGlassCard(enabled: Boolean) {
         repo.asterGlassCard = enabled
-        AsterUiConfig.setGlassCard(enabled)
+        AsterUiConfig.applyGlassCard(enabled)
         _uiState.update { it.copy(asterGlassCard = enabled) }
     }
 
     fun setAsterGlassStrength(value: Float) {
         val v = value.coerceIn(0f, 1f)
         repo.asterGlassStrength = v
-        AsterUiConfig.setGlassStrength(v)
+        AsterUiConfig.applyGlassStrength(v)
         _uiState.update { it.copy(asterGlassStrength = v) }
     }
 
     fun setAsterGlassTransparency(value: Float) {
         val v = value.coerceIn(0f, 1f)
         repo.asterGlassTransparency = v
-        AsterUiConfig.setGlassTransparency(v)
+        AsterUiConfig.applyGlassTransparency(v)
         _uiState.update { it.copy(asterGlassTransparency = v) }
     }
 
     fun setAsterCorner(value: Int) {
         val v = value.coerceIn(0, 36)
         repo.asterCorner = v
-        AsterUiConfig.setCorner(v)
+        AsterUiConfig.applyCorner(v)
         _uiState.update { it.copy(asterCorner = v) }
     }
 
