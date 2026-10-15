@@ -1,5 +1,6 @@
 package me.weishu.kernelsu.ui
 
+import me.weishu.kernelsu.aster.AsterMiuixTheme
 import me.weishu.kernelsu.ui.component.card.LocalFolkLiquidState
 import me.weishu.kernelsu.aster.AsterUiConfig
 import me.weishu.kernelsu.aster.AsterSceneRail
@@ -559,16 +560,21 @@ fun MainScreen(
                 // 把共用的 liquid state 递给下游：侧边栏、主页卡片、以及其它页的卡片都从
                 // LocalFolkLiquidState 取。放在这一层是因为它们全在这个子树的下面，
                 // 而别的分支根本不会读到它（默认 null → 玻璃自动退化成半透明）。
-                CompositionLocalProvider(
-                    LocalFolkLiquidState provides sharedLiquidState
-                ) {
-                    Row {
-                        AsterSceneRail(
-                            selectedPage = mainPagerState.selectedPage,
-                            onSelect = { mainPagerState.animateToPage(it) },
-                        )
-                        Box(modifier = Modifier.weight(1f)) {
-                            pagerContent(navBarBottomPadding)
+                // Miuix 主题桥接：搬过来的 AsterUI 组件读的是 MiuixTheme，
+                // 而 FinaSU 自己的页面跑在 Material3 上。只在这一支外面包，
+                // 别的页面完全不受影响。
+                AsterMiuixTheme {
+                    CompositionLocalProvider(
+                        LocalFolkLiquidState provides sharedLiquidState
+                    ) {
+                        Row {
+                            AsterSceneRail(
+                                selectedPage = mainPagerState.selectedPage,
+                                onSelect = { mainPagerState.animateToPage(it) },
+                            )
+                            Box(modifier = Modifier.weight(1f)) {
+                                pagerContent(navBarBottomPadding)
+                            }
                         }
                     }
                 }
