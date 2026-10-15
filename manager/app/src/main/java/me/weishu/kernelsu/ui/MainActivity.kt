@@ -1,5 +1,6 @@
 package me.weishu.kernelsu.ui
 
+import me.weishu.kernelsu.ui.component.card.LocalFolkLiquidState
 import me.weishu.kernelsu.aster.AsterUiConfig
 import me.weishu.kernelsu.aster.AsterSceneRail
 import android.annotation.SuppressLint
@@ -490,7 +491,25 @@ fun MainScreen(
         val floatingBarGlassEnabled = floatingBarEnabled &&
             remember(floatingBarRevision) { FloatingBarConfig.glass } &&
             isRealTimeBlurAvailable()
-        val floatingLiquidState = if (floatingBarGlassEnabled) rememberNavBarGlassLiquidState() else null
+        // ---- 液态玻璃状态 ----
+        //
+        // 两处需要它：悬浮底栏（原有）和 Aster 的玻璃卡片（新增）。
+        //
+        // 只能有一个 LiquidState 去标记 pagerContent 那一层 —— 一个 state 对应一个"被折射层"，
+        // 两个 state 抢着标记同一层会互相打架。所以这里建一份共用的，两边各按需取用。
+        //
+        // 只在真的会用时才创建：isRealTimeBlurAvailable() 是 Android 13+ 的判断，
+        // 低版本没有实时模糊，建了也没用。
+        val wantLiquidGlass = floatingBarGlassEnabled ||
+            (AsterUiConfig.active && AsterUiConfig.glassCard)
+        val sharedLiquidState = if (wantLiquidGlass && isRealTimeBlurAvailable()) {
+            rememberNavBarGlassLiquidState()
+        } else {
+            null
+        }
+
+        // 悬浮底栏只在它自己开着玻璃时才用（保持原有行为不变）
+        val floatingLiquidState = if (floatingBarGlassEnabled) sharedLiquidState else null
         val floatingAutoHide = remember(floatingBarRevision) { FloatingBarConfig.autoHide }
         val floatingSwipeHide = remember(floatingBarRevision) { FloatingBarConfig.swipeHide }
         val floatingBarVisibility = rememberFloatingBarVisibilityState(
@@ -498,8 +517,11 @@ fun MainScreen(
             autoHide = floatingAutoHide,
             swipeHide = floatingSwipeHide,
         )
+        // Aster 模式下由 Aster 那份驱动折射；否则维持原来的悬浮底栏行为。
+        val effectiveLiquidState = if (AsterUiConfig.active) sharedLiquidState else floatingLiquidState
+
         val pagerContent = @Composable { bottomInnerPadding: Dp ->
-            Box(modifier = Modifier.navBarLiquefiable(floatingLiquidState)) {
+            Box(modifier = Modifier.navBarLiquefiable(effectiveLiquidState)) {
                 HorizontalPager(
                     state = mainPagerState.pagerState,
                     beyondViewportPageCount = if (contentReady) 3 else 0,
@@ -534,13 +556,20 @@ fun MainScreen(
         if (AsterUiConfig.active) {
             val navBarBottomPadding = WindowInsets.systemBars.asPaddingValues().calculateBottomPadding()
             androidx.compose.material3.Scaffold(containerColor = Color.Transparent) {
-                Row {
-                    AsterSceneRail(
-                        selectedPage = mainPagerState.selectedPage,
-                        onSelect = { mainPagerState.animateToPage(it) },
-                    )
-                    Box(modifier = Modifier.weight(1f)) {
-                        pagerContent(navBarBottomPadding)
+                // 把共用的 liquid state 递给下游：侧边栏、主页卡片、以及其它页的卡片都从
+                // LocalFolkLiquidState 取。放在这一层是因为它们全在这个子树的下面，
+                // 而别的分支根本不会读到它（默认 null → 玻璃自动退化成半透明）。
+                CompositionLocalProvider(
+                    LocalFolkLiquidState provides sharedLiquidState
+                ) {
+                    Row {
+                        AsterSceneRail(
+                            selectedPage = mainPagerState.selectedPage,
+                            onSelect = { mainPagerState.animateToPage(it) },
+                        )
+                        Box(modifier = Modifier.weight(1f)) {
+                            pagerContent(navBarBottomPadding)
+                        }
                     }
                 }
             }
