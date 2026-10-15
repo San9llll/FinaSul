@@ -27,7 +27,12 @@ fun getGitDescribe(): String {
 
 fun getVersionCode(): Int {
     val commitCount = getGitCommitCount()
-    return 30000 + commitCount
+    // 基线从 30000 抬到 90000。
+    //
+    // 上游的公式是 30000 + 它自己的 commit 数（几千），而这个 fork 只有几个 commit，
+    // 用同一个公式算出来永远比上游小 —— 于是每次打开都提示"有新版本"，
+    // 而实际上并没有。抬到一个明显更大的基线就不会了。
+    return 90000 + commitCount
 }
 
 fun getVersionName(): String {
