@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">Konfigurasi FolkZygisk gagal. Segarkan status dan periksa mesin serta perlindungan saat mulai.</string>
+    <string name="folkzygisk_loading">Membaca status injeksi…</string>
+    <string name="folkzygisk_read_error">Status tidak tersedia. Injeksi dan konfigurasi boot berikutnya tidak dapat diverifikasi.</string>
+    <string name="folkzygisk_injected">Terinjeksi</string>
+    <string name="folkzygisk_partial">Terinjeksi sebagian</string>
+    <string name="folkzygisk_starting">Memulai</string>
+    <string name="folkzygisk_failed">Gagal</string>
+    <string name="folkzygisk_unverified">Belum diverifikasi</string>
+    <string name="folkzygisk_current">Injeksi saat ini: %1$s</string>
+    <string name="folkzygisk_next_enabled">Konfigurasi boot berikutnya: aktif</string>
+    <string name="folkzygisk_next_disabled">Konfigurasi boot berikutnya: nonaktif</string>
+    <string name="folkzygisk_reboot_required">Mulai ulang diperlukan untuk menerapkan konfigurasi.</string>
+    <string name="folkzygisk_external">Penyedia eksternal: %1$s</string>
+    <string name="folkzygisk_external_precedence">Boot berikutnya: penyedia eksternal %1$s diprioritaskan.</string>
+    <string name="folkzygisk_builtin_active">FolkZygisk bawaan</string>
+    <string name="folkzygisk_blockers">Aktivasi tidak tersedia: %1$s</string>
+    <string name="folkzygisk_license_gate">peninjauan lisensi tertunda</string>
+    <string name="folkzygisk_device_gate">penerimaan perangkat tertunda</string>
+    <string name="folkzygisk_engine_missing">mesin tidak terpasang</string>
+    <string name="folkzygisk_startup_protection">perlindungan saat mulai aktif</string>
+    <string name="folkzygisk_unknown_gate">pembatasan tidak dikenal</string>
+</resources>

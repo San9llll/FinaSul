@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">Falha na configuração do FolkZygisk. Atualize o status e verifique o mecanismo e a proteção de inicialização.</string>
+    <string name="folkzygisk_loading">Lendo o status de injeção…</string>
+    <string name="folkzygisk_read_error">Status indisponível. Não foi possível verificar a injeção nem a configuração da próxima inicialização.</string>
+    <string name="folkzygisk_injected">Injetado</string>
+    <string name="folkzygisk_partial">Parcialmente injetado</string>
+    <string name="folkzygisk_starting">Iniciando</string>
+    <string name="folkzygisk_failed">Falhou</string>
+    <string name="folkzygisk_unverified">Não verificado</string>
+    <string name="folkzygisk_current">Injeção atual: %1$s</string>
+    <string name="folkzygisk_next_enabled">Configuração da próxima inicialização: ativada</string>
+    <string name="folkzygisk_next_disabled">Configuração da próxima inicialização: desativada</string>
+    <string name="folkzygisk_reboot_required">É necessário reiniciar para aplicar a configuração.</string>
+    <string name="folkzygisk_external">Provedores externos: %1$s</string>
+    <string name="folkzygisk_external_precedence">Próxima inicialização: o provedor externo %1$s tem prioridade.</string>
+    <string name="folkzygisk_builtin_active">FolkZygisk integrado</string>
+    <string name="folkzygisk_blockers">Ativação indisponível: %1$s</string>
+    <string name="folkzygisk_license_gate">revisão de licença pendente</string>
+    <string name="folkzygisk_device_gate">aceitação do dispositivo pendente</string>
+    <string name="folkzygisk_engine_missing">mecanismo não instalado</string>
+    <string name="folkzygisk_startup_protection">proteção de inicialização ativa</string>
+    <string name="folkzygisk_unknown_gate">restrição não reconhecida</string>
+</resources>

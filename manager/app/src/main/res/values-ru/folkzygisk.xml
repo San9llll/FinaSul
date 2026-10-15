@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">Не удалось сохранить конфигурацию FolkZygisk. Обновите состояние и проверьте движок и защиту при запуске.</string>
+    <string name="folkzygisk_loading">Чтение состояния инъекции…</string>
+    <string name="folkzygisk_read_error">Состояние недоступно. Не удалось проверить инъекцию и конфигурацию следующей загрузки.</string>
+    <string name="folkzygisk_injected">Внедрено</string>
+    <string name="folkzygisk_partial">Частично внедрено</string>
+    <string name="folkzygisk_starting">Запуск</string>
+    <string name="folkzygisk_failed">Сбой</string>
+    <string name="folkzygisk_unverified">Не проверено</string>
+    <string name="folkzygisk_current">Текущая инъекция: %1$s</string>
+    <string name="folkzygisk_next_enabled">Конфигурация следующей загрузки: включена</string>
+    <string name="folkzygisk_next_disabled">Конфигурация следующей загрузки: отключена</string>
+    <string name="folkzygisk_reboot_required">Для применения конфигурации требуется перезагрузка.</string>
+    <string name="folkzygisk_external">Внешние провайдеры: %1$s</string>
+    <string name="folkzygisk_external_precedence">Следующая загрузка: внешний провайдер %1$s имеет приоритет.</string>
+    <string name="folkzygisk_builtin_active">Встроенный FolkZygisk</string>
+    <string name="folkzygisk_blockers">Активация недоступна: %1$s</string>
+    <string name="folkzygisk_license_gate">ожидается проверка лицензии</string>
+    <string name="folkzygisk_device_gate">ожидается приёмка устройства</string>
+    <string name="folkzygisk_engine_missing">движок не установлен</string>
+    <string name="folkzygisk_startup_protection">активна защита при запуске</string>
+    <string name="folkzygisk_unknown_gate">нераспознанное ограничение</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">FolkZygisk の設定に失敗しました。状態を更新し、エンジンと起動保護を確認してください。</string>
+    <string name="folkzygisk_loading">注入状態を読み取り中…</string>
+    <string name="folkzygisk_read_error">状態を取得できません。注入と次回起動時の設定を確認できませんでした。</string>
+    <string name="folkzygisk_injected">注入済み</string>
+    <string name="folkzygisk_partial">部分的に注入済み</string>
+    <string name="folkzygisk_starting">起動中</string>
+    <string name="folkzygisk_failed">失敗</string>
+    <string name="folkzygisk_unverified">未検証</string>
+    <string name="folkzygisk_current">現在の注入: %1$s</string>
+    <string name="folkzygisk_next_enabled">次回起動時の設定: 有効</string>
+    <string name="folkzygisk_next_disabled">次回起動時の設定: 無効</string>
+    <string name="folkzygisk_reboot_required">設定を適用するには再起動が必要です。</string>
+    <string name="folkzygisk_external">外部プロバイダ: %1$s</string>
+    <string name="folkzygisk_external_precedence">次回起動: 外部プロバイダ %1$s が優先されます。</string>
+    <string name="folkzygisk_builtin_active">内蔵 FolkZygisk</string>
+    <string name="folkzygisk_blockers">有効化できません: %1$s</string>
+    <string name="folkzygisk_license_gate">ライセンス審査が保留中</string>
+    <string name="folkzygisk_device_gate">実機検証が保留中</string>
+    <string name="folkzygisk_engine_missing">エンジンがインストールされていません</string>
+    <string name="folkzygisk_startup_protection">起動保護が有効</string>
+    <string name="folkzygisk_unknown_gate">不明な制限</string>
+</resources>

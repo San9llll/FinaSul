@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">FolkZygisk yapılandırması başarısız oldu. Durumu yenileyin ve motoru ve başlangıç korumasını kontrol edin.</string>
+    <string name="folkzygisk_loading">Enjeksiyon durumu okunuyor…</string>
+    <string name="folkzygisk_read_error">Durum kullanılamıyor. Enjeksiyon ve sonraki önyükleme yapılandırması doğrulanamadı.</string>
+    <string name="folkzygisk_injected">Enjekte edildi</string>
+    <string name="folkzygisk_partial">Kısmen enjekte edildi</string>
+    <string name="folkzygisk_starting">Başlatılıyor</string>
+    <string name="folkzygisk_failed">Başarısız</string>
+    <string name="folkzygisk_unverified">Doğrulanmadı</string>
+    <string name="folkzygisk_current">Geçerli enjeksiyon: %1$s</string>
+    <string name="folkzygisk_next_enabled">Sonraki önyükleme yapılandırması: etkin</string>
+    <string name="folkzygisk_next_disabled">Sonraki önyükleme yapılandırması: devre dışı</string>
+    <string name="folkzygisk_reboot_required">Yapılandırmayı uygulamak için yeniden başlatma gerekir.</string>
+    <string name="folkzygisk_external">Harici sağlayıcılar: %1$s</string>
+    <string name="folkzygisk_external_precedence">Sonraki önyükleme: harici sağlayıcı %1$s önceliklidir.</string>
+    <string name="folkzygisk_builtin_active">Yerleşik FolkZygisk</string>
+    <string name="folkzygisk_blockers">Etkinleştirme kullanılamıyor: %1$s</string>
+    <string name="folkzygisk_license_gate">lisans incelemesi bekliyor</string>
+    <string name="folkzygisk_device_gate">cihaz kabulü bekliyor</string>
+    <string name="folkzygisk_engine_missing">motor kurulu değil</string>
+    <string name="folkzygisk_startup_protection">başlangıç koruması etkin</string>
+    <string name="folkzygisk_unknown_gate">tanınmayan kısıtlama</string>
+</resources>

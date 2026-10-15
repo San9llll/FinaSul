@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">FolkZygisk 设符败陨，请刷新状态并察法门与启道护持。</string>
+    <string name="folkzygisk_loading">正读取注入状态…</string>
+    <string name="folkzygisk_read_error">状态不可用，无法验明注入与下次启道之设。</string>
+    <string name="folkzygisk_injected">已注入</string>
+    <string name="folkzygisk_partial">部分架构已注入</string>
+    <string name="folkzygisk_starting">正启动</string>
+    <string name="folkzygisk_failed">败陨</string>
+    <string name="folkzygisk_unverified">未验</string>
+    <string name="folkzygisk_current">当前注入：%1$s</string>
+    <string name="folkzygisk_next_enabled">下次启道之设：开启</string>
+    <string name="folkzygisk_next_disabled">下次启道之设：闭关</string>
+    <string name="folkzygisk_reboot_required">需重铸仙躯以施行此设。</string>
+    <string name="folkzygisk_external">外道提供者：%1$s</string>
+    <string name="folkzygisk_external_precedence">下次开机：外道提供者 %1$s 当先。</string>
+    <string name="folkzygisk_builtin_active">内置 FolkZygisk</string>
+    <string name="folkzygisk_blockers">暂不可启：%1$s</string>
+    <string name="folkzygisk_license_gate">仙门允准待审</string>
+    <string name="folkzygisk_device_gate">真机验收待成</string>
+    <string name="folkzygisk_engine_missing">法门尚未炼入</string>
+    <string name="folkzygisk_startup_protection">启道护持已动</string>
+    <string name="folkzygisk_unknown_gate">未知之限</string>
+</resources>

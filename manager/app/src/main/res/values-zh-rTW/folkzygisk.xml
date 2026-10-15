@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">FolkZygisk 設定失敗。請重新整理狀態，並檢查引擎與啟動保護。</string>
+    <string name="folkzygisk_loading">正在讀取注入狀態…</string>
+    <string name="folkzygisk_read_error">無法取得狀態。無法驗證注入與下次開機設定。</string>
+    <string name="folkzygisk_injected">已注入</string>
+    <string name="folkzygisk_partial">部分注入</string>
+    <string name="folkzygisk_starting">啟動中</string>
+    <string name="folkzygisk_failed">失敗</string>
+    <string name="folkzygisk_unverified">未驗證</string>
+    <string name="folkzygisk_current">目前注入：%1$s</string>
+    <string name="folkzygisk_next_enabled">下次開機設定：已啟用</string>
+    <string name="folkzygisk_next_disabled">下次開機設定：已停用</string>
+    <string name="folkzygisk_reboot_required">需要重新啟動才能套用設定。</string>
+    <string name="folkzygisk_external">外部提供者：%1$s</string>
+    <string name="folkzygisk_external_precedence">下次啟動：外部提供者 %1$s 優先。</string>
+    <string name="folkzygisk_builtin_active">內建 FolkZygisk</string>
+    <string name="folkzygisk_blockers">無法啟用：%1$s</string>
+    <string name="folkzygisk_license_gate">授權審查待處理</string>
+    <string name="folkzygisk_device_gate">裝置驗收待處理</string>
+    <string name="folkzygisk_engine_missing">尚未安裝引擎</string>
+    <string name="folkzygisk_startup_protection">啟動保護已啟用</string>
+    <string name="folkzygisk_unknown_gate">無法辨識的限制</string>
+</resources>

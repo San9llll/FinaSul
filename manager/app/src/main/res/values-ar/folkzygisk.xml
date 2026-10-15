@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">فشل إعداد FolkZygisk. حدّث الحالة وتحقق من المحرّك وحماية الإقلاع.</string>
+    <string name="folkzygisk_loading">جارٍ قراءة حالة الحقن…</string>
+    <string name="folkzygisk_read_error">الحالة غير متاحة. تعذّر التحقق من الحقن وإعداد الإقلاع التالي.</string>
+    <string name="folkzygisk_injected">محقون</string>
+    <string name="folkzygisk_partial">محقون جزئيًا</string>
+    <string name="folkzygisk_starting">جارٍ البدء</string>
+    <string name="folkzygisk_failed">فشل</string>
+    <string name="folkzygisk_unverified">غير مُتحقَّق منه</string>
+    <string name="folkzygisk_current">الحقن الحالي: %1$s</string>
+    <string name="folkzygisk_next_enabled">إعداد الإقلاع التالي: مفعّل</string>
+    <string name="folkzygisk_next_disabled">إعداد الإقلاع التالي: معطّل</string>
+    <string name="folkzygisk_reboot_required">يلزم إعادة التشغيل لتطبيق الإعداد.</string>
+    <string name="folkzygisk_external">المزوّدات الخارجية: %1$s</string>
+    <string name="folkzygisk_external_precedence">الإقلاع التالي: المزوّد الخارجي %1$s له الأولوية.</string>
+    <string name="folkzygisk_builtin_active">FolkZygisk المدمج</string>
+    <string name="folkzygisk_blockers">التفعيل غير متاح: %1$s</string>
+    <string name="folkzygisk_license_gate">مراجعة الترخيص معلّقة</string>
+    <string name="folkzygisk_device_gate">قبول الجهاز معلّق</string>
+    <string name="folkzygisk_engine_missing">المحرّك غير مثبّت</string>
+    <string name="folkzygisk_startup_protection">حماية الإقلاع مفعّلة</string>
+    <string name="folkzygisk_unknown_gate">قيد غير معروف</string>
+</resources>

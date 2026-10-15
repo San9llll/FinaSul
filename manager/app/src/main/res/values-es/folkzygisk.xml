@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">Error en la configuración de FolkZygisk. Actualiza el estado y comprueba el motor y la protección de arranque.</string>
+    <string name="folkzygisk_loading">Leyendo el estado de inyección…</string>
+    <string name="folkzygisk_read_error">Estado no disponible. No se pudo verificar la inyección ni la configuración del próximo arranque.</string>
+    <string name="folkzygisk_injected">Inyectado</string>
+    <string name="folkzygisk_partial">Inyectado parcialmente</string>
+    <string name="folkzygisk_starting">Iniciando</string>
+    <string name="folkzygisk_failed">Fallido</string>
+    <string name="folkzygisk_unverified">Sin verificar</string>
+    <string name="folkzygisk_current">Inyección actual: %1$s</string>
+    <string name="folkzygisk_next_enabled">Configuración del próximo arranque: activada</string>
+    <string name="folkzygisk_next_disabled">Configuración del próximo arranque: desactivada</string>
+    <string name="folkzygisk_reboot_required">Se requiere reiniciar para aplicar la configuración.</string>
+    <string name="folkzygisk_external">Proveedores externos: %1$s</string>
+    <string name="folkzygisk_external_precedence">Próximo arranque: el proveedor externo %1$s tiene prioridad.</string>
+    <string name="folkzygisk_builtin_active">FolkZygisk integrado</string>
+    <string name="folkzygisk_blockers">Activación no disponible: %1$s</string>
+    <string name="folkzygisk_license_gate">revisión de licencia pendiente</string>
+    <string name="folkzygisk_device_gate">aceptación del dispositivo pendiente</string>
+    <string name="folkzygisk_engine_missing">motor no instalado</string>
+    <string name="folkzygisk_startup_protection">protección de arranque activa</string>
+    <string name="folkzygisk_unknown_gate">restricción no reconocida</string>
+</resources>

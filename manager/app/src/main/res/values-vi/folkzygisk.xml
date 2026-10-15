@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folkzygisk_write_failed">Cấu hình FolkZygisk thất bại. Hãy làm mới trạng thái và kiểm tra engine cùng bảo vệ khởi động.</string>
+    <string name="folkzygisk_loading">Đang đọc trạng thái tiêm…</string>
+    <string name="folkzygisk_read_error">Không có trạng thái. Không thể xác minh tiến trình tiêm và cấu hình cho lần khởi động tiếp theo.</string>
+    <string name="folkzygisk_injected">Đã tiêm</string>
+    <string name="folkzygisk_partial">Tiêm một phần</string>
+    <string name="folkzygisk_starting">Đang khởi động</string>
+    <string name="folkzygisk_failed">Thất bại</string>
+    <string name="folkzygisk_unverified">Chưa xác minh</string>
+    <string name="folkzygisk_current">Tiêm hiện tại: %1$s</string>
+    <string name="folkzygisk_next_enabled">Cấu hình cho lần khởi động tiếp theo: đã bật</string>
+    <string name="folkzygisk_next_disabled">Cấu hình cho lần khởi động tiếp theo: đã tắt</string>
+    <string name="folkzygisk_reboot_required">Cần khởi động lại để áp dụng cấu hình.</string>
+    <string name="folkzygisk_external">Trình cung cấp bên ngoài: %1$s</string>
+    <string name="folkzygisk_external_precedence">Lần khởi động tới: trình cung cấp bên ngoài %1$s được ưu tiên.</string>
+    <string name="folkzygisk_builtin_active">FolkZygisk tích hợp</string>
+    <string name="folkzygisk_blockers">Không thể kích hoạt: %1$s</string>
+    <string name="folkzygisk_license_gate">đang chờ xem xét giấy phép</string>
+    <string name="folkzygisk_device_gate">đang chờ chấp nhận thiết bị</string>
+    <string name="folkzygisk_engine_missing">chưa cài đặt engine</string>
+    <string name="folkzygisk_startup_protection">bảo vệ khởi động đang hoạt động</string>
+    <string name="folkzygisk_unknown_gate">hạn chế không nhận dạng</string>
+</resources>
