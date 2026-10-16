@@ -1,5 +1,6 @@
 package me.weishu.kernelsu.ui
 
+import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.width
 import me.weishu.kernelsu.ui.component.bottombar.BottomBarDestination
