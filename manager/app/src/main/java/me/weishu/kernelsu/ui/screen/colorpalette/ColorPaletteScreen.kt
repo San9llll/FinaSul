@@ -1,5 +1,6 @@
 package me.weishu.kernelsu.ui.screen.colorpalette
 
+import me.weishu.kernelsu.ui.navigation3.Route
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -39,6 +40,7 @@ fun ColorPaletteScreen() {
         onSetColorMode = viewModel::setColorMode,
         onSetColorStyle = viewModel::setColorStyle,
         onSetColorSpec = viewModel::setColorSpec,
+        onOpenAsterTheme = { navigator.push(Route.AsterTheme) },
     )
 
     ColorPaletteScreenMaterial(state, actions)

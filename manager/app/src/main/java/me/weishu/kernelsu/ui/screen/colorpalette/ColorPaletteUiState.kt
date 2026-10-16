@@ -22,4 +22,6 @@ data class ColorPaletteScreenActions(
     val onSetColorMode: (ColorMode) -> Unit,
     val onSetColorStyle: (String) -> Unit,
     val onSetColorSpec: (String) -> Unit,
+    /** 进 AsterUI 的主题设置页。 */
+    val onOpenAsterTheme: () -> Unit = {},
 )

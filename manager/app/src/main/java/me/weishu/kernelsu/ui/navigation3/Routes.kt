@@ -65,6 +65,11 @@ sealed interface Route : NavKey, Parcelable {
     @Serializable
     data object ColorPalette : Route
 
+    /** AsterUI 的主题设置。从「主题」页面里那张 AsterUI 卡片进。 */
+    @Parcelize
+    @Serializable
+    data object AsterTheme : Route
+
     @Parcelize
     @Serializable
     data object Wallpaper : Route

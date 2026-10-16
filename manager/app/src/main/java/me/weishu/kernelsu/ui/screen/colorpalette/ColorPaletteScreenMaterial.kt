@@ -139,6 +139,24 @@ fun ColorPaletteScreenMaterial(
                 .widthIn(max = SettingsContentMaxWidth),
             verticalArrangement = Arrangement.spacedBy(13.dp)
         ) {
+            // ---- AsterUI 主题设置 ----
+            //
+            // 只在 AsterUI 布局下出现：这一整套（玻璃 / 背景 / 时钟 / 侧栏）对别的布局
+            // 没有任何作用，露出来只会让人困惑。其它布局下这一项直接不生成。
+            //
+            // 卡片用的是 Miuix 组件，所以外面要包一层 AsterMiuixTheme —— 那儿会把
+            // FinaSU 当前这套配色（基准色 / 明暗 / 配色方案）翻译给 Miuix，
+            // 让它跟旁边几张卡是同一套颜色。
+            if (me.weishu.kernelsu.aster.AsterUiConfig.active) {
+                item {
+                    me.weishu.kernelsu.aster.AsterMiuixTheme {
+                        me.weishu.kernelsu.aster.ui.AsterThemeEntryCard(
+                            onClick = { actions.onOpenAsterTheme() },
+                        )
+                    }
+                }
+            }
+
             item {
                 ThemePreviewCard(
                     keyColor = currentKeyColor,

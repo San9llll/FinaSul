@@ -305,6 +305,15 @@ open class MainActivity : FragmentActivity() {
                                     me.weishu.kernelsu.ui.screen.nomount.NomountExclusionsScreen()
                                 }
                                 entry<Route.ColorPalette> { ColorPaletteScreen() }
+                                entry<Route.AsterTheme> {
+                                    // 这个页面整页都是 Miuix 组件，外面包一层桥接把
+                                    // FinaSU 的配色喂过去。
+                                    me.weishu.kernelsu.aster.AsterMiuixTheme {
+                                        me.weishu.kernelsu.aster.ui.AsterThemeScreen(
+                                            onBack = { navigator.pop() },
+                                        )
+                                    }
+                                }
                                 entry<Route.AppProfileTemplate> { AppProfileTemplateScreen() }
                                 entry<Route.TemplateEditor> { key -> TemplateEditorScreen(key.template, key.readOnly) }
                                 entry<Route.AppProfile> { key -> AppProfileScreen(key.uid) }

@@ -226,6 +226,9 @@ dependencies {
     implementation(libs.miuix.icons)
     implementation(libs.miuix.preference)
 
+    // 液态玻璃 —— AsterUI 的卡片和设置界面用这个（跟 Nakour 一致）
+    implementation(libs.kyant.backdrop)
+
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 

@@ -1,6 +1,9 @@
 [versions]
 # Miuix —— 跟 Nakour 同一个版本，AsterUI 那套界面直接搬过来才不会走样
 miuix = "0.9.3"
+# 液态玻璃。FinaSU 自己的底栏用的是 io.github.fletchmckee.liquid，
+# 而 Nakour 那套卡片和设置界面用的是这个 —— 两个库机制不同，各自管各自的区域。
+backdrop = "2.0.1"
 agp = "9.4.1"
 kotlin = "2.4.20"
 compose-bom = "2026.09.00"
@@ -46,6 +49,7 @@ protobuf = { id = "com.google.protobuf", version = "0.10.0" }
 miuix-ui = { group = "top.yukonga.miuix.kmp", name = "miuix-ui-android", version.ref = "miuix" }
 miuix-icons = { group = "top.yukonga.miuix.kmp", name = "miuix-icons-android", version.ref = "miuix" }
 miuix-preference = { group = "top.yukonga.miuix.kmp", name = "miuix-preference-android", version.ref = "miuix" }
+kyant-backdrop = { module = "io.github.kyant0:backdrop", version.ref = "backdrop" }
 androidx-lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", version.ref = "lifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
