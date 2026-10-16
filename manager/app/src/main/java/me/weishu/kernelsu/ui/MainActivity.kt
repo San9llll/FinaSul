@@ -1,5 +1,7 @@
 package me.weishu.kernelsu.ui
 
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.width
 import me.weishu.kernelsu.ui.component.bottombar.BottomBarDestination
 import me.weishu.kernelsu.aster.ui.HomeSceneRail
 import me.weishu.kernelsu.aster.ui.ClockStyle
@@ -586,9 +588,19 @@ fun MainScreen(
                     CompositionLocalProvider(
                         LocalFolkLiquidState provides sharedLiquidState
                     ) {
+                        // ⚠️ 必须给导轨**显式宽度**。
+                        //
+                        // 它内部最外层有一层 fillMaxSize 的背景，在 Row 里会吃掉整行 ——
+                        // 不给宽度的话内容区宽度为 0，表现就是"侧栏占满全屏、看不到主页"。
+                        //
+                        // 宽度沿用 Nakour 的算法：屏宽的 25% 减 28dp，夹在 56~80dp。
+                        // 窄屏不会挤成一条，宽屏（平板/横屏）也不会胖得难看。
+                        val screenWidthDp = androidx.compose.ui.platform.LocalConfiguration
+                            .current.screenWidthDp.dp
+                        val railWidth = (screenWidthDp * 0.25f - 28.dp)
+                            .coerceIn(56.dp, 80.dp)
+
                         Row {
-                            // 从 Nakour 原样搬过来的场景导轨（时钟 / 电量 / 信息块 / 五页导航）。
-                            // 放在壳这一层是因为它要切所有页面，不属于任何一个页面。
                             HomeSceneRail(
                                 destinations = asterRailDestinations(),
                                 currentIndex = mainPagerState.selectedPage,
@@ -596,6 +608,9 @@ fun MainScreen(
                                 clockStyle = ClockStyle.Stacked,
                                 showBattery = true,
                                 showInfo = AsterUiConfig.showInfoBlock,
+                                modifier = Modifier
+                                    .width(railWidth)
+                                    .fillMaxHeight(),
                             )
                             Box(modifier = Modifier.weight(1f)) {
                                 pagerContent(navBarBottomPadding)
